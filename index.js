@@ -1,4 +1,4 @@
-import Game from "./src/index.js";
+const Game = require('./src');
 
 const game = new Game([
     ['  ', '  ', '  '], /// row 0, column 0, 1, 2

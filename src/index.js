@@ -1,6 +1,8 @@
 class Game {
     constructor(pixels) {
         this.pixels = pixels;
+        /// error is private
+        this.error = this.error.bind(this);
     }
     /// draw on the console the table
     draw() {
@@ -30,13 +32,21 @@ class Game {
 
     /// error handling
     error(msg) {
-        console.log(msg);
-        process.exit(1);
+        return new Error(msg);
     }
 
     board(pixels) {
         this.pixels = pixels;
     }
+
+    help() {
+        const functions = [
+            'help',
+            'update',
+            'draw'
+        ];
+        console.table(functions);
+    }
 }
 
-export default Game;
+module.exports = Game;
