@@ -51,7 +51,8 @@ class Game {
         const functions = [
             'help',
             'update',
-            'draw'
+            'draw',
+            'board'
         ];
         console.table(functions);
     }
