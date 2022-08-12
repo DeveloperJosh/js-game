@@ -6,6 +6,7 @@ class Game {
     }
     /// draw on the console the table
     draw() {
+        try {
         //// draw the text on the console screen, check for errors
         for (let i = 0; i < this.pixels.length; i++) {
             for (let j = 0; j < this.pixels[i].length; j++) {
@@ -13,9 +14,13 @@ class Game {
             }
             process.stdout.write('\n');
         }
+        } catch (err) {
+            this.error(err);
+        }
     }
     update(y, x, str) {
         /// check how many rows and columns the table has
+        try {
         if (y >= this.pixels.length) {
             throw this.error('row out of range');
         }
@@ -28,6 +33,9 @@ class Game {
         }
         /// update the cell
         this.pixels[y][x] = ` ${str} `;
+        } catch (err) {
+            this.error(err);
+        }
     }
 
     /// error handling
@@ -49,4 +57,4 @@ class Game {
     }
 }
 
-module.exports = Game;
+module.exports = Game
